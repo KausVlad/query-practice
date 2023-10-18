@@ -1,7 +1,7 @@
 import { useGetPizzasQuery } from "./store/api/api";
 
 function App() {
-  const { data, isLoading } = useGetPizzasQuery();
+  const { data, isLoading } = useGetPizzasQuery({ ingredientName: "Chicken" });
   console.log(data);
   return (
     <>

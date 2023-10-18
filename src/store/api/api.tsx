@@ -7,9 +7,15 @@ export const api = createApi({
     baseUrl,
   }),
   endpoints: (builder) => ({
-    getPizzas: builder.query({
-      query: () => "/pizza/all",
+    getPizzas: builder.query<Array<string>, { ingredientName: string }>({
+      query: ({ ingredientName }) => ({
+        url: "/pizza/all",
+        params: {
+          ingredientName,
+        },
+      }),
     }),
+    getPizzaById: builder.query<string, string>({}),
   }),
 });
 
