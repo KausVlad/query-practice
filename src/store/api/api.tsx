@@ -15,7 +15,11 @@ export const api = createApi({
         },
       }),
     }),
-    getPizzaById: builder.query<string, string>({}),
+    getPizzaById: builder.query<string, string>({
+      query: (id) => ({
+        url: `/pizza/${id}`,
+      }),
+    }),
   }),
 });
 
